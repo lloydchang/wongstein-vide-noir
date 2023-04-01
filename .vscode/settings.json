@@ -1,0 +1,9 @@
+{
+    "genieai.openai.organization": "",
+    "genieai.promptPrefix.optimize": "Optimize the following code in Python",
+    "genieai.promptPrefix.addComments": "Add comments for the following code in Python",
+    "genieai.promptPrefix.explain": "Explain the following code in Python",
+    "genieai.promptPrefix.completeCode": "Complete the following code in Python",
+    "genieai.promptPrefix.findProblems": "Find problems with the following code in Python",
+    "genieai.promptPrefix.addTests": "Implement tests for the following code in Python"
+}
