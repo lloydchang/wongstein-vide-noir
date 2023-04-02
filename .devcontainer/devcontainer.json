@@ -27,9 +27,9 @@
 			},
 			"extensions": [
 				"genieai.chatgpt-vscode",
-				"sourcegraph.cody-ai",
 				"GitHub.copilot",
-				"GitHub.copilot-labs"
+				"GitHub.copilot-labs",
+				"hpargecruos.kodj"
 			]
 		}
 	},
