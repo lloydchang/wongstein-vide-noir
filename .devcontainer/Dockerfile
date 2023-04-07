@@ -28,3 +28,5 @@ EXPOSE 8000
 EXPOSE 35729
 EXPOSE 3000
 EXPOSE 1313
+
+CMD ["./.devcontainer/setup-script.sh"]
