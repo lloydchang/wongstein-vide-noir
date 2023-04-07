@@ -22,7 +22,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # https://notes.alexkehayias.com/running-docker-compose-in-codespaces/
 
-ADD ./app /app
+# ADD ./app /app
 
 EXPOSE 8000
 EXPOSE 35729
