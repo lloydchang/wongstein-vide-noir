@@ -4,8 +4,13 @@
         "context": "."
     },
     "features": {
-		"features": {
-			"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"docker-in-docker": {
+			"version": "latest",
+			"moby": true,
+			"dockerDashComposeVersion": "v1",
+			"azureDnsAutoDetection": "true",
+			"dockerDefaultAddressPool": "-",
+			"installDockerBuildx": "true"
 		},
 		"ghcr.io/devcontainers/features/common-utils:2":{
             "installZsh": "true",
