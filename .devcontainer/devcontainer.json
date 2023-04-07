@@ -48,5 +48,20 @@
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+
+	// https://notes.alexkehayias.com/running-docker-compose-in-codespaces/
+	//
+	// Your code path from the .devcontainer directory
+	"workspaceFolder": "./app",
+	// List of ports that you want to preview
+	"forwardPorts": [1234, 5678],
+	// Script to run to bootstrap the app when the space is created
+	"postCreateCommand": ". ./setup_script.sh",
+	// Automatically start the app in subsequent sessions
+	"postStartCommand": "cd app && docker-compose start",
+	// Privileged flag is needed to run docker-in-docker, the volume
+	// is needed or docker build will fail
+	"runArgs": ["--volume=/var/lib/docker", "--privileged"]
+	"postCreateCommand": ". /app/scripts/codespaces.sh",
 }

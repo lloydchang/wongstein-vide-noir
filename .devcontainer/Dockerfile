@@ -19,3 +19,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
+# https://notes.alexkehayias.com/running-docker-compose-in-codespaces/
+
+ADD ./app /app
+
+EXPOSE 8000
+EXPOSE 35729
+EXPOSE 3000
+EXPOSE 1313
