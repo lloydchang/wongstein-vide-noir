@@ -34,10 +34,10 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
 			},
 			"extensions": [
+				"hpargecruos.kodj",
 				"genieai.chatgpt-vscode",
 				"GitHub.copilot",
-				"GitHub.copilot-labs",
-				"hpargecruos.kodj"
+				"GitHub.copilot-labs"
 			]
 		}
 	},
