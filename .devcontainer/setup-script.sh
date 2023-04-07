@@ -14,4 +14,4 @@ dockerd &
 # If you need to use docker for this setup script you must stop all containers
 # otherwise, any servers running in docker will not have their ports
 # forwarded properly by codespaces.
-# ocker-compose stop
+# docker-compose stop
