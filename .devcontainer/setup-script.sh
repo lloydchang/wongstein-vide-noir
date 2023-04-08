@@ -8,6 +8,7 @@
 sudo dockerd &
 # Ugh yes there's no nice way to wait until dockerd is ready
 sleep 5
+cd ../app
 # Do whatever setup you need
 docker-compose up -d
 # docker-compose exec {some command to run migrations etc}
