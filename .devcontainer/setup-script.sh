@@ -1,24 +1,22 @@
-#!/bin/sh -x
+#!/bin/sh -xe
 
 cd $(dirname $0)
 
-# https://notes.alexkehayias.com/running-docker-compose-in-codespaces/
+sudo rm -rf /etc/localtime
+sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+sudo pip install --upgrade pip
+sudo pip3 install --user -r ./notebooks/requirements.txt
+sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash -
+sudo apt-get install -y nodejs
+../powerlevel10k/install.sh; 
 
-# Assumes docker-compose.yaml is at the root /app root
-# cd app
-# This setup script depends on running some code in other containers
 sudo dockerd &
-# Ugh yes there's no nice way to wait until dockerd is ready
-# sleep 5
-while test -z /var/run/docker.sock; do
+set +e
+while [ $EXIT_CODE_DOCKER_PS -ne "0" ]; do
+    docker ps
+    EXIT_CODE_DOCKER_PS=$?
     sleep 1;
 done
+set -e
 cd ../app
 ./run.sh
-# Do whatever setup you need
-# docker-compose up -d
-# docker-compose exec {some command to run migrations etc}
-# If you need to use docker for this setup script you must stop all containers
-# otherwise, any servers running in docker will not have their ports
-# forwarded properly by codespaces.
-# docker-compose stop

@@ -44,9 +44,6 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo rm -rf /etc/localtime; sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime; sudo pip install --upgrade pip; sudo pip3 install --user -r ./notebooks/requirements.txt; sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash - && sudo apt-get install -y nodejs",
-
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 
@@ -56,10 +53,9 @@
 	// "workspaceFolder": "./app",
 	// List of ports that you want to preview
 	 "forwardPorts": [1234, 5678],
-	// Script to run to bootstrap the app when the space is created
-	"postCreateCommand": "./powerlevel10k/install.sh; .devcontainer/setup-script.sh",
-	// Automatically start the app in subsequent sessions
-	"postStartCommand": "cd app && docker-compose start",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": ".devcontainer/setup-script.sh",
+	"postStartCommand": "",
 	// Privileged flag is needed to run docker-in-docker, the volume
 	// is needed or docker build will fail
 	"runArgs": ["--volume=/var/lib/docker", "--privileged"]
