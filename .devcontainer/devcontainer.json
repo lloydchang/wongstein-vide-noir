@@ -57,11 +57,10 @@
 	// List of ports that you want to preview
 	 "forwardPorts": [1234, 5678],
 	// Script to run to bootstrap the app when the space is created
-	 "postCreateCommand": ". ./setup_script.sh",
+	"postCreateCommand": "./powerlevel10k/install.sh; ./setup_script.sh",
 	// Automatically start the app in subsequent sessions
 	"postStartCommand": "cd app && docker-compose start",
 	// Privileged flag is needed to run docker-in-docker, the volume
 	// is needed or docker build will fail
-	"runArgs": ["--volume=/var/lib/docker", "--privileged"],
-	"postCreateCommand": "./powerlevel10k/install.sh",
+	"runArgs": ["--volume=/var/lib/docker", "--privileged"]
 }
