@@ -45,8 +45,7 @@
 	"forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt; curl -fsSL https://deb.nodesource.com/setup_19.x | bash - &&\
-	apt-get install -y nodejs",
+	"postCreateCommand": "sudo pip3 install --user -r requirements.txt; sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash - && sudo apt-get install -y nodejs",
 
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",

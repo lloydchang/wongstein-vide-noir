@@ -7,9 +7,12 @@ cd $(dirname $0)
 # Assumes docker-compose.yaml is at the root /app root
 # cd app
 # This setup script depends on running some code in other containers
-# sudo dockerd &
+sudo dockerd &
 # Ugh yes there's no nice way to wait until dockerd is ready
 # sleep 5
+while [ test -z /var/run/docker.sock ]; do
+    sleep 1;
+done
 cd ../app
 ./run.sh
 # Do whatever setup you need
