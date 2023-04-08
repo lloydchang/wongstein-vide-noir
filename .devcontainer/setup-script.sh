@@ -10,7 +10,7 @@ cd $(dirname $0)
 sudo dockerd &
 # Ugh yes there's no nice way to wait until dockerd is ready
 # sleep 5
-while [ test -z /var/run/docker.sock ]; do
+while test -z /var/run/docker.sock; do
     sleep 1;
 done
 cd ../app
