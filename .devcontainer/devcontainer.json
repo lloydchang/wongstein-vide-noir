@@ -1,6 +1,6 @@
 {
     "build": {
-        "dockerfile": "./Dockerfile",
+        "dockerfile": "Dockerfile",
         "context": "."
     },
     "features": {
@@ -52,17 +52,17 @@
 	// Your code path from the .devcontainer directory
 	// "workspaceFolder": "./app",
 	// List of ports that you want to preview
-	 "forwardPorts": [1234, 5678],
+	"forwardPorts": [1234, 5678],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "./setup-script.sh",
+	"postCreateCommand": ".devcontainer/setup-script.sh",
 	"postStartCommand": "",
 	// Privileged flag is needed to run docker-in-docker, the volume
 	// is needed or docker build will fail
 	"runArgs": ["--volume=/var/lib/docker", "--privileged"],
-	// "terminal.integrated.profiles.linux": {
-	// 	"zsh": {
-	// 	  "path": "/usr/bin/zsh"
-	// 	}
-	//   },
-	// "terminal.integrated.defaultProfile.linux": "zsh",
+	"terminal.integrated.profiles.linux": {
+	"zsh": {
+	  "path": "/usr/bin/zsh"
+	  }
+	},
+	"terminal.integrated.defaultProfile.linux": "zsh",
 }
