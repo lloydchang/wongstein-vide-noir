@@ -1,10 +1,18 @@
 {
     "build": {
-        "dockerfile": "./Dockerfile",
+        "dockerfile": "Dockerfile",
         "context": "."
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2":{
+		"docker-in-docker": {
+			"version": "latest",
+			"moby": true,
+			"dockerDashComposeVersion": "v1",
+			"azureDnsAutoDetection": "true",
+			"dockerDefaultAddressPool": "-",
+			"installDockerBuildx": "true"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2":{
             "installZsh": "true",
             "username": "vscode",
             "userUid": "1000",
@@ -26,19 +34,35 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
 			},
 			"extensions": [
+				"hpargecruos.kodj",
 				"genieai.chatgpt-vscode",
 				"GitHub.copilot",
-				"GitHub.copilot-labs",
-				"hpargecruos.kodj"
+				"GitHub.copilot-labs"
 			]
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+	"forwardPorts": [],
 
 	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+
+	// https://notes.alexkehayias.com/running-docker-compose-in-codespaces/
+	//
+	// Your code path from the .devcontainer directory
+	// "workspaceFolder": "./app",
+	// List of ports that you want to preview
+	"forwardPorts": [1234, 5678],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "",
+	"postStartCommand": ".devcontainer/logger.sh",
+	// Privileged flag is needed to run docker-in-docker, the volume
+	// is needed or docker build will fail
+	"runArgs": ["--volume=/var/lib/docker", "--privileged"],
+	"terminal.integrated.profiles.linux": {
+	"zsh": {
+	  "path": "/usr/bin/zsh"
+	  }
+	},
+	"terminal.integrated.defaultProfile.linux": "zsh"
 }
