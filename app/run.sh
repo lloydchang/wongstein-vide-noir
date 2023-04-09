@@ -33,3 +33,5 @@ docker logs $DOCKER_CONTAINER_ID
 docker ps
 
 curl -i localhost:49160
+
+exit 0
