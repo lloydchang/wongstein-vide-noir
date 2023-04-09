@@ -24,4 +24,6 @@ while [ "$EXIT_CODE_DOCKER_PS" -ne "0" ]; do
 done
 set -e
 cd ../app
+jupyter lab
+jupyter server list
 # ./run.sh
