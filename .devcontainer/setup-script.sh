@@ -9,7 +9,7 @@ sudo pip install --upgrade pip &
 # https://stackoverflow.com/questions/62301268/whenever-i-try-to-install-torch-it-displays-killed
 # Mitigate "Killed" by adding "--no-cache-dir"
 sudo wget https://bootstrap.pypa.io/get-pip.py &
-sudo python get-pip.py &
+sudo $(python get-pip.py; rm get-pip.py) &
 sudo pip3 install --user -r ../notebooks/requirements.txt --no-cache-dir &
 sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash - &
 sudo apt-get install -y nodejs &
