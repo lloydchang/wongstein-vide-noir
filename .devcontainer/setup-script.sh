@@ -3,15 +3,18 @@
 cd $(dirname $0)
 
 sudo rm -rf /etc/localtime
-sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
-sudo pip install --upgrade pip
-sudo pip3 install --user -r ./notebooks/requirements.txt
-sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash -
-sudo apt-get install -y nodejs
-../powerlevel10k/install.sh; 
+sudo ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime &
+../powerlevel10k/install.sh &
+sudo pip install --upgrade pip &
+# https://stackoverflow.com/questions/62301268/whenever-i-try-to-install-torch-it-displays-killed
+# Mitigate "Killed" by adding "--no-cache-dir"
+sudo pip3 install --user -r ../notebooks/requirements.txt --no-cache-dir &
+sudo curl -fsSL https://deb.nodesource.com/setup_19.x | sudo bash - &
+sudo apt-get install -y nodejs &
 
 sudo dockerd &
 set +e
+EXIT_CODE_DOCKER_PS=""
 while [ $EXIT_CODE_DOCKER_PS -ne "0" ]; do
     docker ps
     EXIT_CODE_DOCKER_PS=$?
