@@ -54,7 +54,7 @@
 	// List of ports that you want to preview
 	 "forwardPorts": [1234, 5678],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ".devcontainer/setup-script.sh",
+	"postCreateCommand": "./setup-script.sh",
 	"postStartCommand": "",
 	// Privileged flag is needed to run docker-in-docker, the volume
 	// is needed or docker build will fail
