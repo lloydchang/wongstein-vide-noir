@@ -2,4 +2,6 @@
 
 cd $(dirname $0)
 
-./install.sh 2>&1 | tee -a install.log
+mkdir ../tmp
+
+./install.sh 2>&1 | tee -a ../tmp/install.log
