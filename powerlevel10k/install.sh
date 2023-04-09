@@ -6,4 +6,3 @@ test -e ~/powerlevel10k || git clone --depth=1 https://github.com/romkatv/powerl
 
 cp .zshrc ~/.zshrc &
 cp .p10k.zsh ~/.p10k.zsh
-zsh
