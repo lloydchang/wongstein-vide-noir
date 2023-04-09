@@ -2,6 +2,6 @@
 
 cd $(dirname $0)
 
-mkdir ../tmp
+mkdir -p ../tmp
 
 ./install.sh 2>&1 | tee -a ../tmp/install.log
