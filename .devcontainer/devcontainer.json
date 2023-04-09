@@ -58,5 +58,11 @@
 	"postStartCommand": "",
 	// Privileged flag is needed to run docker-in-docker, the volume
 	// is needed or docker build will fail
-	"runArgs": ["--volume=/var/lib/docker", "--privileged"]
+	"runArgs": ["--volume=/var/lib/docker", "--privileged"],
+	// "terminal.integrated.profiles.linux": {
+	// 	"zsh": {
+	// 	  "path": "/usr/bin/zsh"
+	// 	}
+	//   },
+	// "terminal.integrated.defaultProfile.linux": "zsh",
 }
